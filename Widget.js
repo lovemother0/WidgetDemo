@@ -48,13 +48,13 @@ function(declare, BaseWidget,map,esriLang,FeatureLayer) {
                             //data = "Feature "+x+":n";
 
                             //building a string of the queried data
-                            for(var y in featureLayer.fields){
-                                var name1 = featureLayer.fields[y].name;
-                                //var name2 = featureLayer.fields[3].name;
+                            //for(var y in featureLayer.fields){
+                                var name1 = featureLayer.fields[2].name;
+                                var name2 = featureLayer.fields[3].name;
                                 data+= name1+" : "+features[x].attributes[name1];
-                                //data+= name2+" : "+features[x].attributes[name2];
+                                data+= name2+" : "+features[x].attributes[name2];
                                 //alert(y);返回的y是fields的索引数
-                            }
+                            //}
                         }
                         document.getElementById('renj').innerText=data;
                     }else{
