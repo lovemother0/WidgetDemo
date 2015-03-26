@@ -43,20 +43,22 @@ function(declare, BaseWidget,map,esriLang,FeatureLayer) {
                 function(features){
                     //user clicked on something, then we should have features
                     if(features.length > 0){
-                        var data = "";
-                        for(var x in features){
+                        var data1 = "";
+                        var data2 = "";
+                             for(var x in features){
+                             //x in features指的是每个监测站点，点击事件
                             //data = "Feature "+x+":n";
 
                             //building a string of the queried data
                             //for(var y in featureLayer.fields){
                                 var name1 = featureLayer.fields[2].name;
                                 var name2 = featureLayer.fields[3].name;
-                                data+= name1+" : "+features[x].attributes[name1];
-                                data+= name2+" : "+features[x].attributes[name2];
+                                data1=features[x].attributes[name1];
+                                data2=features[x].attributes[name2];
                                 //alert(y);返回的y是fields的索引数
                             //}
                         }
-                        document.getElementById('renj').innerText=data;
+                        document.getElementById('renj').innerText=data1+data2;
                     }else{
                         alert("Failed to select the feature");
                     }
