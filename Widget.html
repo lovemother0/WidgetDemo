@@ -4,4 +4,25 @@
     <div data-dojo-attach-point="mapIdNode"></div>
     <input type="button" class="map-id" id="showcontent" value='Demo_map'>
     <div id="renj"></div>
+    <!--加入使用本地视频的代码，没调通-->
+    <!--<input type="file" id="file" onchange="onInputFileChange()">-->
+    <!--<audio id="audio_id" controls autoplay loop>Your browser can't support HTML5 Audio</audio>-->
+    <!--<script>-->
+        <!--function onInputFileChange() {-->
+            <!--var file = document.getElementById('file').files[0];-->
+            <!--var url = URL.createObjectURL(file);-->
+            <!--console.log(url);-->
+            <!--document.getElementById("audio_id").src = url;-->
+        <!--}-->
+    <!--</script>-->
+    <div id="video">
+        <object id="obx" name="obx" width="290" height="260">
+            <param name="movie" value="http://water.arcgisonline.cn/gisapps/monitor/resources/video/M2U00441.swf"></param>
+            <param name="allowFullScreen" value="true"></param>
+            <param name="allowscriptaccess" value="always"></param>
+            <param name="wmode" value="opaque"></param>
+            <embed src="http://water.arcgisonline.cn/gisapps/monitor/resources/video/M2U00441.swf" type="application/x-shockwave-flash"
+                   allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="290" height="260"></embed>
+            </object>
+    </div>
 </div>
