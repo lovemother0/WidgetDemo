@@ -23,7 +23,8 @@ function(declare, BaseWidget,map,esriLang,FeatureLayer) {
     startup: function() {
       this.inherited(arguments);
       this.mapIdNode.innerHTML = 'map id:' + this.map.id;
-        var featureLayer = new FeatureLayer("http://water.arcgisonline.cn/arcgis/rest/services/Hosted/%E6%B0%B4%E6%96%87%E7%AB%99%E7%9B%91%E6%B5%8B%E6%95%B0%E6%8D%AE/FeatureServer/0",{
+        var featureLayer = new FeatureLayer("http://services5.arcgis.com/JfkMFO4dd69NwLOF/arcgis/rest/services/%E7%9C%81%E7%BA%A7%E8%A1%8C%E6%94%BF%E4%B8%AD%E5%BF%83/FeatureServer/0",{
+      //var featureLayer = new FeatureLayer("http://water.arcgisonline.cn/arcgis/rest/services/Hosted/%E6%B0%B4%E6%96%87%E7%AB%99%E7%9B%91%E6%B5%8B%E6%95%B0%E6%8D%AE/FeatureServer/0",{
       //var featureLayer = new FeatureLayer("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0",{
       //var featureLayer = new FeatureLayer("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/3",{
             mode: FeatureLayer.MODE_ONDEMAND,
@@ -47,42 +48,19 @@ function(declare, BaseWidget,map,esriLang,FeatureLayer) {
                         var data2 = "";
                              for(var x in features){
                              //x in features指的是每个监测站点，点击事件
-                            //data = "Feature "+x+":n";
-
-                            //building a string of the queried data
-                            //for(var y in featureLayer.fields){
-                                var name1 = featureLayer.fields[2].name;
+                                var name1 = featureLayer.fields[1].name;
                                 var name2 = featureLayer.fields[3].name;
                                 data1=features[x].attributes[name1];
                                 data2=features[x].attributes[name2];
-                                //alert(y);返回的y是fields的索引数
-                            //}
                         }
-                        document.getElementById('renj').innerText=data1+data2;
+                        document.getElementById('renj').innerText=data1;
+                        document.getElementById('video').innerHTML='<object id="obx" name="obx" width="290" height="260"><param name="movie" value='+data2+'></param><embed src='+data2+' width="290" height="260"></embed></object>';
                     }else{
                         alert("Failed to select the feature");
                     }
                 });
 
         });
-        //dialog = new TooltipDialog({
-        //    id: "tooltipDialog",
-        //    style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
-        //});
-        //dialog.startup();
-        //featureLayer.on("click", function(evt) {
-                //var objectId = evt.graphic.attributes[featureLayer.objectIdField];
-            //var t="<b>${NAME}</b><hr><b>2000 Population: </b>${POP2000:NumberFormat}<br>"
-            //   + "<b>2000 Population per Sq. Mi.: </b>${POP00_SQMI:NumberFormat}<br>"
-            //    + "<b>2007 Population: </b>${POP2007:NumberFormat}<br>"
-            //   + "<b>2007 Population per Sq. Mi.: </b>${POP07_SQMI:NumberFormat}";
-            //var content= evt.graphic.attributes[featureLayer.fields(0).name];
-            //alert(content);
-            //dialog.setContent(content);
-            //registry.byId("showcontent").set("value", "POP2007");
-                //alert(objectId);
-                //alert(objectId);
-        //});
     },
 
     onOpen: function(){
